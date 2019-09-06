@@ -2,24 +2,27 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
-let input
-
 const mapStateToProps = (state) => ({
     todos: state
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    add: addTodo(input.value)
+    add: (input) => dispatch(addTodo(input.value))
 })
 
-const AddItem = () => {
-   
-
+const AddItem = (props) => {
+    let input
 
     return (
         <div>
-            <input type='text' ref={(node) => input = node}/>
-            <button onClick={() => add}>add</button>
+            <input 
+                type='text' 
+                ref={(node) => input = node}
+            />
+            <button onClick={() => {
+                props.add(input)
+                input.value = ''
+            }}>add</button>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import {
     TOGGLE_TODO
 } from '../constants/ActionTypes' 
 
-const uuidv4 = require('uuid/v4')
+let uuidv4 = require('uuid/v4')
 
 export const todos = (state=[], action) => {
     switch (action.type) {
