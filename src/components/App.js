@@ -18,8 +18,8 @@ const mapStateToProps = (state) => {
 } */
 
 const mapDispatchToProps = dispatch => ({
-    setValueInc: () => dispatch(increment()),
-    setValueDec: () => dispatch(decrement()),
+    setValueInc: () => dispatch(increment()),  //  dispatch(plusVal(1))
+    setValueDec: () => dispatch(decrement()),  //  dispatch(plusVal(-1))
     setValuePlusVal: (val) => dispatch(plusVal(val))
 })
 
@@ -29,9 +29,10 @@ function App(props) {
     <div className="App">
       <button onClick={() => props.setValueInc()}>inc</button>
       <button onClick={() => props.setValueDec()}>dec</button>
-      <button onClick={() => props.setValuePlusVal(parseInt(input.value))}>plus value</button>
+      <button onClick={() => props.setValuePlusVal(parseInt(input.value))}>plus value:</button>
       <input type='number' ref={node => input = node} defaultValue='0'/>
-      {props.intValue}
+      <br />
+      <span>result: </span>{props.intValue}
     </div>
   );
 }
