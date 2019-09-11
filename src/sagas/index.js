@@ -16,11 +16,12 @@ function* getUserByIdFetchAsync(action) {
         yield put(getUserByIdIsLoading(true))
         const userInfo = yield call(async () => {
             const res = await fetch(`https://jsonplaceholder.typicode.com/users/${action.id}`)
-            return res.json()
+            return res.ok ? res.json() : false
         })
-        if (Object.entries(userInfo).length === 0 && userInfo.constructor === Object) { yield put(getUserByIdError(true)) }
         yield put(getUserByIdIsLoading(false))
-        yield put(getUserByIdSuccess(userInfo))
+        !userInfo 
+            ? yield put(getUserByIdError(true))
+            : yield put(getUserByIdSuccess(userInfo))
     } catch (err) {
         console.log(err)
         yield put(getUserByIdError(true))
