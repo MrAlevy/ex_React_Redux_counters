@@ -16,7 +16,9 @@ function* getUserByIdFetchAsync(action) {
         yield put(getUserByIdIsLoading(true))
         const userInfo = yield call(async () => {
             const res = await fetch(`https://jsonplaceholder.typicode.com/users/${action.id}`)
-            return res.ok ? res.json() : false
+            return res.ok 
+                ? res.json() 
+                : false
         })
         yield put(getUserByIdIsLoading(false))
         !userInfo 
