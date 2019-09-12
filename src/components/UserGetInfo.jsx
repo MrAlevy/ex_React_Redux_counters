@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { getUserByIdFetching } from '../actions'
+import { getUserByIdFetch } from '../actions'
 
 export const UserGetInfo = () => {
     const dispatch = useDispatch()
@@ -13,7 +13,7 @@ export const UserGetInfo = () => {
             <br />
             <button 
                 onClick={() => dispatch(
-                    getUserByIdFetching(`https://jsonplaceholder.typicode.com/users/${input.value}`)
+                    getUserByIdFetch(input.value)
                 )}
             >get the user info</button>
         </div>

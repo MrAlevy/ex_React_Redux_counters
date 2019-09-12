@@ -4,22 +4,28 @@ import {
     GET_USER_BY_ID_ERROR 
 } from '../constants/ActionTypes'
 
-const getUserById = (userInfo) => ({
+
+export const getUserByIdFetch = (id) => ({
+    type: 'GET_USER_BY_ID_FETCH',
+    id
+})
+
+export const getUserByIdSuccess = (userInfo) => ({
     type: GET_USER_BY_ID_SUCCESS,
     payload: userInfo
 })
 
-const getUserByIdIsLoading = (bool) => ({
+export const getUserByIdIsLoading = (bool) => ({
     type: GET_USER_BY_ID_IS_LOADING,
     isLoading: bool
 })
 
-const getUserByIdError = (bool) => ({
+export const getUserByIdError = (bool) => ({
     type: GET_USER_BY_ID_ERROR,
     error: bool
 })
 
-export const getUserByIdFetching = (url) => {
+/* export const getUserByIdFetching = (url) => {
     return (dispatch) => {
         dispatch(getUserByIdError(false))
         dispatch(getUserByIdIsLoading(true))
@@ -35,4 +41,4 @@ export const getUserByIdFetching = (url) => {
             })
             .catch(() => dispatch(getUserByIdError(true)))
     }
-}
+} */
