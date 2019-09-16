@@ -18,13 +18,13 @@ function Shop() {
 
   return (
     <div>
-          {albums.map(album => 
-            <div key={album.id}>
-              <Link to={`/shop/${album.id}`}>
-                {album.title}
-              </Link>
-            </div>
-          )}
+      {albums.map(album => 
+        <div key={album.id}>
+          <Link to={`/shop/${album.id}`}>
+            {album.title}
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

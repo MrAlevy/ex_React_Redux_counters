@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 function Album({match}) {
-console.log(match)
+
   useEffect(() => {
     fetchItem()
   }, [])
@@ -18,7 +18,7 @@ console.log(match)
 
   return (
     <div>
-        {album.id}
+      {album.id}
     </div>
   );
 }
