@@ -20,7 +20,10 @@ function Shop() {
     <div>
       {albums.map(album => 
         <div key={album.id}>
-          <Link to={`/shop/${album.id}`}>
+          <Link to={{
+            pathname: `/shop/${album.id}`,
+            state: {album: album}
+          }}>
             {album.title}
           </Link>
         </div>

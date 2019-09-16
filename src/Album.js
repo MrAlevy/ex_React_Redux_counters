@@ -1,24 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-function Album({match}) {
+function Album(props) {
 
-  useEffect(() => {
-    fetchItem()
-  }, [])
-
-  const [album, setAlbum] = useState({})
-  const id = match.params.id
-
-  const fetchItem = async () => {
-    const data = await fetch(`https://jsonplaceholder.typicode.com/albums/${id}`)
-    const album = await data.json()
-    console.log(album)
-    setAlbum(album)
-  }
+  console.log(props)
 
   return (
     <div>
-      {album.id}
+      id: {props.location.state.album.id} <br />
+      title: {props.location.state.album.title}
     </div>
   );
 }
